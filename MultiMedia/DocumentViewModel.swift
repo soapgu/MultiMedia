@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class DocumentViewModel : ObservableObject {
+class DocumentViewModel : ObservableObject,Identifiable {
     @Published var name: String
     
     init(name:String){
@@ -21,8 +21,11 @@ class DocumentViewModel : ObservableObject {
     
     ///生成对应View
     func createView() -> AnyView {
-        return AnyView( EmptyView() )
+        fatalError("not sub class DocumentViewModel")
     }
+    
+    /// 下载完成回调抽象方法
+    func downloadFinished() {}
 }
 
 extension DocumentViewModel {

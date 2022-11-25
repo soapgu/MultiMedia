@@ -21,4 +21,8 @@ class ImageViewModel : DocumentViewModel {
     override func createView() -> AnyView {
         AnyView(ImageView(vm: self))
     }
+    
+    override func downloadFinished() {
+        //生成缩略图
+    }
 }

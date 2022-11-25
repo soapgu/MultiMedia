@@ -24,4 +24,9 @@ class PdfViewModel : DocumentViewModel {
     override func createView() -> AnyView {
         AnyView( PdfView(vm: self) )
     }
+    
+    override func downloadFinished() {
+        //do 截屏封面
+        //计算页数
+    }
 }

@@ -14,16 +14,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack() {
-                ForEach( viewModel.allDocuments ){ doc in
+                ForEach( viewModel.documents ){ vm in
                     ZStack {
-                        Text(doc.name)
+                        Text(vm.name)
                         NavigationLink(destination:
-                            DetailView(doc: doc), tag:doc.name ,selection: $showDetail) {
+                            DetailView(vm: vm), tag: vm.name ,selection: $showDetail) {
                             EmptyView()
                         }
                     }
                     .onTapGesture {
-                        showDetail = doc.name
+                        showDetail = vm.name
                     }
                 }
                 Spacer()

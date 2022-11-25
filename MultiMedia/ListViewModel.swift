@@ -8,14 +8,15 @@
 import Foundation
 
 class ListViewModel : ObservableObject {
-    @Published var allDocuments: [DocumentModel] = []
+    
+    @Published var documents: [DocumentViewModel] = []
     
     
     init(){
-        self.allDocuments.append(DocumentModel(id: UUID(), name: "《三体》", fileType: "pdf"))
-        self.allDocuments.append(DocumentModel(id: UUID(), name: "《天朝的崩溃》", fileType: "pdf"))
-        self.allDocuments.append(DocumentModel(id: UUID(), name: "《长津湖》", fileType: ".avi"))
-        self.allDocuments.append(DocumentModel(id: UUID(), name: "设计图1", fileType: ".jpg"))
+        self.documents.append( DocumentViewModel.createInstance(doc: DocumentModel(id: UUID(), name: "《三体》", fileType: "pdf")) )
+        self.documents.append( DocumentViewModel.createInstance(doc: DocumentModel(id: UUID(), name: "《天朝的崩溃》", fileType: "pdf")))
+        self.documents.append( DocumentViewModel.createInstance(doc: DocumentModel(id: UUID(), name: "《长津湖》", fileType: ".avi")))
+        self.documents.append( DocumentViewModel.createInstance(doc: DocumentModel(id: UUID(), name: "设计图1", fileType: ".jpg")))
     }
     
     var title: String {

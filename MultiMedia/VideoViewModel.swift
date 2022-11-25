@@ -21,4 +21,8 @@ class VideoViewModel : DocumentViewModel {
     override func createView() -> AnyView {
         AnyView( VideoView(vm: self) )
     }
+    
+    override func downloadFinished() {
+        // 截屏第一帧
+    }
 }

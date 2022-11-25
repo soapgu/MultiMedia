@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct DetailView: View {
-    var doc:DocumentModel
-    @StateObject private var vm:DocumentViewModel
     
-    init( doc : DocumentModel ) {
-        self.doc = doc
-        
-        _vm = StateObject(wrappedValue: DocumentViewModel.createInstance(doc: doc))
+    @ObservedObject private var vm:DocumentViewModel
+    
+    init( vm : DocumentViewModel ) {
+        self.vm = vm
     }
     
     var body: some View {
@@ -27,7 +25,7 @@ struct DetailView: View {
             Text("\(vm.description)")
             Spacer()
         }
-        .navigationTitle(doc.name)
+        .navigationTitle(vm.name)
     }
 }
 
@@ -35,8 +33,9 @@ struct DetailView_Previews: PreviewProvider {
     
     static var previews: some View {
         let doc = DocumentModel(id: UUID(), name: "《三体》", fileType: "pdf")
+        let vm = DocumentViewModel.createInstance(doc: doc);
         NavigationView {
-            DetailView(doc:doc)
+            DetailView(vm: vm)
         }
     }
 }
